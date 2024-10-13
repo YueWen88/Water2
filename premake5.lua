@@ -10,8 +10,12 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Water/vendor/GLFW/include"
+IncludeDir["Glad"] = "Water/vendor/Glad/include"
+IncludeDir["ImGui"] = "Water/vendor/imgui"
 
 include "Water/vendor/GLFW"
+include "Water/vendor/Glad"
+include "Water/vendor/imgui"
 
 project "Water"
 	-- 项目文件夹位置
@@ -39,12 +43,16 @@ project "Water"
         "%{prj.name}/src",
         "%{prj.name}/vendor/spdlog/include",
         "%{IncludeDir.GLFW}",
+        "%{IncludeDir.Glad}",
+        "%{IncludeDir.ImGui}",
     }
 
     links 
 	{ 
 		"GLFW",
-		"opengl32.lib"
+        "Glad",
+        "ImGui",
+		"opengl32.lib",
 	}
 
     filter "system:windows"
@@ -59,6 +67,7 @@ project "Water"
         {
             "HZ_PLATFORM_WINDOWS",
             "HZ_BUILD_DLL",
+            "GLFW_INCLUDE_NONE",
             "_SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING"
         }
 		
