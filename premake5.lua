@@ -19,6 +19,8 @@ project "Water"
     -- 中间目录
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "hzpch.h"
+	pchsource "Water/src/hzpch.cpp"
 
     files { 
         "%{prj.name}/src/**.h",
