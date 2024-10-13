@@ -7,6 +7,12 @@ workspace "Water"
 -- 定义变量
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include directories relative to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "Water/vendor/GLFW/include"
+
+include "Water/vendor/GLFW"
+
 project "Water"
 	-- 项目文件夹位置
     location "Water"
@@ -32,7 +38,14 @@ project "Water"
     {
         "%{prj.name}/src",
         "%{prj.name}/vendor/spdlog/include",
+        "%{IncludeDir.GLFW}",
     }
+
+    links 
+	{ 
+		"GLFW",
+		"opengl32.lib"
+	}
 
     filter "system:windows"
         cppdialect "C++17" -- C++语言标准
