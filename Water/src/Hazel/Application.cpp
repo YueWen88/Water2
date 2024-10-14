@@ -2,6 +2,7 @@
 #include "Application.h"
 
 #include "Hazel/Log.h"
+#include "Hazel/Input.h"
 
 #include "glad/glad.h"
 
@@ -57,6 +58,9 @@ namespace Hazel {
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
 
+			if (Input::IsKeyPressde(72)) {
+				HZ_CORE_INFO("h±»°´ÏÂ");
+			}
 			m_Window->OnUpdate();
 		}
 	}

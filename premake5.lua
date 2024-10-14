@@ -75,7 +75,7 @@ project "Water"
         postbuildcommands
         {
 	        -- COPY弃用了，改成这样即可
-            ("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
+            ("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
         }
 
     filter "configurations:Debug"
