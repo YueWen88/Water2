@@ -7,3 +7,6 @@
 [submodule "Water/vendor/imgui"]
 	path = Water/vendor/imgui
 	url = https://github.com/TheCherno/imgui
+[submodule "Water/vendor/glm"]
+	path = Water/vendor/glm
+	url = https://github.com/g-truc/glm

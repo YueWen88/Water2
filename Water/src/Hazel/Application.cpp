@@ -58,9 +58,6 @@ namespace Hazel {
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
 
-			if (Input::IsKeyPressde(72)) {
-				HZ_CORE_INFO("h±»°´ÏÂ");
-			}
 			m_Window->OnUpdate();
 		}
 	}

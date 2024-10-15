@@ -12,6 +12,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Water/vendor/GLFW/include"
 IncludeDir["Glad"] = "Water/vendor/Glad/include"
 IncludeDir["ImGui"] = "Water/vendor/imgui"
+IncludeDir["glm"] = "Water/vendor/glm"
 
 include "Water/vendor/GLFW"
 include "Water/vendor/Glad"
@@ -34,7 +35,9 @@ project "Water"
 
     files { 
         "%{prj.name}/src/**.h",
-        "%{prj.name}/src/**.cpp"
+        "%{prj.name}/src/**.cpp",
+        "%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl",
     }
 
 	-- C/C++->常规->附加包含目录
@@ -45,6 +48,7 @@ project "Water"
         "%{IncludeDir.GLFW}",
         "%{IncludeDir.Glad}",
         "%{IncludeDir.ImGui}",
+        "%{IncludeDir.glm}",
     }
 
     links 
@@ -111,6 +115,7 @@ project "Sandbox"
     {
         "Water/vendor/spdlog/include",
         "Water/src",
+        "%{IncludeDir.glm}",
     }
 
     links {
